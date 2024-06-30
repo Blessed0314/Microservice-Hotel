@@ -3,13 +3,15 @@ package com.jcj.microservice.hotel.domain.model;
 public class Reservation {
     private final Long id;
     private final Hotel hotel;
-    private final String roomNumber;
+    private final int people;
+    private final int nights;
     private final boolean isActive;
 
-    public Reservation(Long id, Hotel hotel, String roomNumber, boolean isActive) {
+    public Reservation(Long id, Hotel hotel, int people, int nights, boolean isActive) {
         this.id = id;
         this.hotel = hotel;
-        this.roomNumber = roomNumber;
+        this.people = people;
+        this.nights = nights;
         this.isActive = isActive;
     }
 
@@ -21,8 +23,12 @@ public class Reservation {
         return hotel;
     }
 
-    public String getRoomNumber() {
-        return roomNumber;
+    public int getPeople() {
+        return people;
+    }
+
+    public int getNights() {
+        return nights;
     }
 
     public boolean isActive() {
