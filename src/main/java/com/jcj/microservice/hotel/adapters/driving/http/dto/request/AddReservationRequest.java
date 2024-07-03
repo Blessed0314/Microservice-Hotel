@@ -10,8 +10,6 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class AddReservationRequest {
-    @NotNull(message = MessageConstants.FIELD_ID_NULL_MESSAGE)
-    private final Long id;
     @NotNull(message = MessageConstants.FIELD_HOTEL_NULL_MESSAGE)
     private final Hotel hotel;
     @NotNull(message = MessageConstants.FIELD_PEOPLE_NULL_MESSAGE)

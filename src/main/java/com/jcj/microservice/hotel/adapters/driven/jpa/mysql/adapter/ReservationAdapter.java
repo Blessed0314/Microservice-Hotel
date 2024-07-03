@@ -1,8 +1,12 @@
 package com.jcj.microservice.hotel.adapters.driven.jpa.mysql.adapter;
 
+import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.entity.HotelEntity;
 import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.entity.ReservationEntity;
+import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.exception.HotelNotFoundException;
 import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.exception.ReservationNotFoundException;
+import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.mapper.IHotelEntityMapper;
 import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.mapper.IReservationEntityMapper;
+import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.repository.IHotelRepository;
 import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.repository.IReservationRepository;
 import com.jcj.microservice.hotel.domain.model.Reservation;
 import com.jcj.microservice.hotel.domain.spi.IReservationPersistencePort;
@@ -14,9 +18,15 @@ public class ReservationAdapter implements IReservationPersistencePort {
     private final IReservationRepository reservationRepository;
     private final IReservationEntityMapper reservationEntityMapper;
 
+    private final IHotelRepository hotelRepository;
+    private final IHotelEntityMapper hotelEntityMapper;
+
     @Override
-    public void createReservation(Reservation reservation) {
-        reservationRepository.save(reservationEntityMapper.toEntity(reservation));
+    public Reservation createReservation(Reservation reservation) {
+        HotelEntity hotel = hotelRepository.findById(reservation.getHotel().getId()).orElseThrow(HotelNotFoundException::new);
+        ReservationEntity reservationEntity = reservationEntityMapper.toEntity(reservation);
+        reservationEntity.setHotel(hotel);
+        return reservationEntityMapper.toModel(reservationRepository.save(reservationEntity));
     }
 
     @Override

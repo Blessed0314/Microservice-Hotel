@@ -20,8 +20,10 @@ public class IReservationRestControllerAdapter {
     private final IReservationResponseMapper reservationResponseMapper;
 
     @PostMapping("/")
-    public void createReservation(@Valid @RequestBody AddReservationRequest request){
-        reservationServicePort.createReservation(reservationRequestMapper.addRequestToReservation(request));
+    public ResponseEntity<ReservationResponse> createReservation(@Valid @RequestBody AddReservationRequest request){
+        return ResponseEntity.ok(reservationResponseMapper.toReservationResponse(
+                reservationServicePort.createReservation(reservationRequestMapper.addRequestToReservation(request))
+        ));
     }
 
     @GetMapping("/")
@@ -30,7 +32,7 @@ public class IReservationRestControllerAdapter {
     }
 
     @DeleteMapping("/")
-    public void deleteReservation(@RequestParam Long idReservation){
-        reservationServicePort.deleteReservation(idReservation);
+    public void deleteReservation(@RequestParam Long id){
+        reservationServicePort.deleteReservation(id);
     }
 }

@@ -28,7 +28,7 @@ public class BeanConfiguration {
 
     @Bean
     public IReservationPersistencePort reservationPersistencePort() {
-        return new ReservationAdapter(reservationRepository, reservationEntityMapper);
+        return new ReservationAdapter(reservationRepository, reservationEntityMapper, hotelRepository, hotelEntityMapper);
     }
     @Bean
     public IReservationServicePort reservationServicePort() {

@@ -1,6 +1,7 @@
 package com.jcj.microservice.hotel.adapters.driven.jpa.mysql.adapter;
 
 import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.entity.HotelEntity;
+import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.exception.HotelAlreadyExistsException;
 import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.exception.HotelNotFoundException;
 import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.mapper.IHotelEntityMapper;
 import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.repository.IHotelRepository;
@@ -18,6 +19,11 @@ public class HotelAdapter implements IHotelPersistencePort {
 
     @Override
     public void addHotel(Hotel hotel) {
+        hotelRepository.findByNameIgnoreCaseAndTrim(hotel.getName()).ifPresent(h -> {
+            if(h.getCity().equals(hotel.getCity()) && h.getAddress().equals(hotel.getAddress())) {
+                throw new HotelAlreadyExistsException();
+            }
+        });
         hotelRepository.save(hotelEntityMapper.toEntity(hotel));
     }
 

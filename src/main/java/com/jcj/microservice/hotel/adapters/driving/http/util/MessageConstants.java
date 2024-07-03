@@ -11,7 +11,6 @@ public class MessageConstants {
     public static final String FIELD_CITY_NULL_MESSAGE = "Field 'city' cannot be null";
     public static final String FIELD_PRICE_NULL_MESSAGE = "Field 'price' cannot be null";
     public static final String FIELD_ROOMS_NULL_MESSAGE = "Field 'rooms' cannot be null";
-    public static final String FIELD_ID_NULL_MESSAGE = "Field 'id' cannot be null";
     public static final String FIELD_HOTEL_NULL_MESSAGE = "Field 'hotel' cannot be null";
     public static final String FIELD_PEOPLE_NULL_MESSAGE = "Field 'people' cannot be null";
     public static final String FIELD_NIGHTS_NULL_MESSAGE = "Field 'nights' cannot be null";
