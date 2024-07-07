@@ -22,11 +22,11 @@ public class ReservationAdapter implements IReservationPersistencePort {
     private final IHotelEntityMapper hotelEntityMapper;
 
     @Override
-    public Reservation createReservation(Reservation reservation) {
+    public Long createReservation(Reservation reservation) {
         HotelEntity hotel = hotelRepository.findById(reservation.getHotel().getId()).orElseThrow(HotelNotFoundException::new);
         ReservationEntity reservationEntity = reservationEntityMapper.toEntity(reservation);
         reservationEntity.setHotel(hotel);
-        return reservationEntityMapper.toModel(reservationRepository.save(reservationEntity));
+        return reservationEntityMapper.toModel(reservationRepository.save(reservationEntity)).getId();
     }
 
     @Override

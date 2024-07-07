@@ -20,10 +20,8 @@ public class IReservationRestControllerAdapter {
     private final IReservationResponseMapper reservationResponseMapper;
 
     @PostMapping("/")
-    public ResponseEntity<ReservationResponse> createReservation(@Valid @RequestBody AddReservationRequest request){
-        return ResponseEntity.ok(reservationResponseMapper.toReservationResponse(
-                reservationServicePort.createReservation(reservationRequestMapper.addRequestToReservation(request))
-        ));
+    public Long createReservation(@Valid @RequestBody AddReservationRequest request){
+        return reservationServicePort.createReservation(reservationRequestMapper.addRequestToReservation(request));
     }
 
     @GetMapping("/")

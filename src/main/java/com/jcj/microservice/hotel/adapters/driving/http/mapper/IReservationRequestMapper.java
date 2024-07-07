@@ -8,5 +8,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface IReservationRequestMapper {
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "hotel.id", source = "idHotel")
     Reservation addRequestToReservation(AddReservationRequest addReservationRequest);
 }

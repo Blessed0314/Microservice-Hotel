@@ -13,7 +13,7 @@ public class ReservationUseCase implements IReservationServicePort {
     }
 
     @Override
-    public Reservation createReservation(Reservation reservation) {
+    public Long createReservation(Reservation reservation) {
         return reservationPersistencePort.createReservation(reservation);
     }
 

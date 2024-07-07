@@ -11,7 +11,7 @@ import lombok.Getter;
 @Getter
 public class AddReservationRequest {
     @NotNull(message = MessageConstants.FIELD_HOTEL_NULL_MESSAGE)
-    private final Hotel hotel;
+    private final Long idHotel;
     @NotNull(message = MessageConstants.FIELD_PEOPLE_NULL_MESSAGE)
     @Positive(message = MessageConstants.NOT_NEGATIVE_MESSAGE)
     private final int people;
