@@ -7,6 +7,7 @@ import com.jcj.microservice.hotel.adapters.driving.http.mapper.IHotelRequestMapp
 import com.jcj.microservice.hotel.adapters.driving.http.mapper.IHotelResponseMapper;
 import com.jcj.microservice.hotel.domain.api.IHotelServicePort;
 import jakarta.validation.Valid;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

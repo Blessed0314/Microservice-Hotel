@@ -12,6 +12,7 @@ import com.jcj.microservice.hotel.domain.api.usecase.HotelUseCase;
 import com.jcj.microservice.hotel.domain.api.usecase.ReservationUseCase;
 import com.jcj.microservice.hotel.domain.spi.IHotelPersistencePort;
 import com.jcj.microservice.hotel.domain.spi.IReservationPersistencePort;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
