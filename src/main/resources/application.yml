@@ -1,9 +1,9 @@
 server:
-  port: 8090
+  port: 8092
 
 spring:
   datasource:
-    url: http://127.0.0.1:40463/reserva-hotel
+    url: jdbc:mysql://127.0.0.1:3306/reserva_hotel
     username: ${username}
     password: ${password}
   jpa:
