@@ -30,7 +30,7 @@ public class ReservationEntity {
     @PreUpdate
     private void calculateNetValue() {
         if (this.hotel != null && this.hotel.getPrice() > 0) {
-            this.netValue = this.nights * this.hotel.getPrice();
+            this.netValue = this.nights * this.hotel.getPrice() * this.people;
         } else {
             this.netValue = 0;
         }
