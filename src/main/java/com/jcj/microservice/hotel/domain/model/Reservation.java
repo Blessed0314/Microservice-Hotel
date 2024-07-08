@@ -5,8 +5,13 @@ public class Reservation {
     private final Hotel hotel;
     private final int people;
     private final int nights;
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
     private final int netValue;
-    private final boolean isActive;
+    private  boolean isActive;
 
     public Reservation(Long id, Hotel hotel, int people, int nights, int netValue, boolean isActive) {
         this.id = id;

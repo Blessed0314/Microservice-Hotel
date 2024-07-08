@@ -29,8 +29,8 @@ public class IReservationRestControllerAdapter {
         return ResponseEntity.ok(reservationResponseMapper.toReservationResponse(reservationServicePort.getReservation(idReservation)));
     }
 
-    @DeleteMapping("/")
-    public void deleteReservation(@RequestParam Long id){
+    @DeleteMapping("/{id}")
+    public void deleteReservation(@PathVariable Long id){
         reservationServicePort.deleteReservation(id);
     }
 }
