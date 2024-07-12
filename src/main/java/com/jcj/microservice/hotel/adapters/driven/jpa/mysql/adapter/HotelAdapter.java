@@ -37,4 +37,7 @@ public class HotelAdapter implements IHotelPersistencePort {
     public List<Hotel> getHotels() {
         return hotelEntityMapper.toModelList(hotelRepository.findAll());
     }
+
+
+
 }

@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
         info = @Info(
                 title = "Microservice Hotel API",
                 version = "1.0.0",
-                description = "Documentation of Microservice Hotel API",
+                description = "Documentation of Microservice Vuelo API",
                 contact = @Contact(
                         name = "Christian Daniel Villegas, Juan Miguel Rojas, Jean Heyller Palomino",
                         email = "christian.villegas@correounivalle.edu.co, juan.noriega@correounivalle.edu.co, jean.palomino@correounivalle.edu.co"
@@ -21,7 +21,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
         ),
         servers = {
                 @Server(
-                        url = "http://localhost:8090",
+                        url = "http://microservice-vuelo:8091",
                         description = "Local server"
                 )
         }

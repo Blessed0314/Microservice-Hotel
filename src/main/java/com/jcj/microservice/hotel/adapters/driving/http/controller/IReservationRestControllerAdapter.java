@@ -33,4 +33,9 @@ public class IReservationRestControllerAdapter {
     public void deleteReservation(@PathVariable Long id){
         reservationServicePort.deleteReservation(id);
     }
+
+    @GetMapping("/nameHotel/{id}")
+    public String bringNameHotel(@PathVariable Long id){
+        return reservationServicePort.bringNameHotel(id);
+    }
 }
