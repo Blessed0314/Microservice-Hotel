@@ -6,4 +6,6 @@ public  interface IReservationPersistencePort {
     Long createReservation(Reservation reservation);
     Reservation getReservation(Long reservationId);
     void deleteReservation(Long reservationId);
+
+    String bringNameHotel(Long reservationId);
 }

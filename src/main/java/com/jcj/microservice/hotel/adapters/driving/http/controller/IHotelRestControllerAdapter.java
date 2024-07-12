@@ -39,4 +39,6 @@ public class IHotelRestControllerAdapter {
     public ResponseEntity<HotelToReservationResponse> getHotelById(@PathVariable Long id){
         return ResponseEntity.ok(hotelResponseMapper.toHotelResponse(hotelServicePort.getHotel(id)));
     }
+
+
 }

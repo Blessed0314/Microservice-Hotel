@@ -42,4 +42,10 @@ public class ReservationAdapter implements IReservationPersistencePort {
         reservation.setActive(false);
         reservationRepository.save(reservation);
     }
+
+    @Override
+    public String bringNameHotel(Long reservationId) {
+        ReservationEntity reservation = reservationRepository.findById(reservationId).orElseThrow(ReservationNotFoundException::new);
+        return reservation.getHotel().getName();
+    }
 }
