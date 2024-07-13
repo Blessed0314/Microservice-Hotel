@@ -28,7 +28,7 @@ public class ReservationUseCase implements IReservationServicePort {
     }
 
     @Override
-    public String bringNameHotel(Long reservationId) {
+    public Object bringNameHotel(Long reservationId) {
         return reservationPersistencePort.bringNameHotel(reservationId);
     }
 }

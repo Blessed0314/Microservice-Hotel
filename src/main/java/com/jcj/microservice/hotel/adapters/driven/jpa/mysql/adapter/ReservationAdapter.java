@@ -10,6 +10,7 @@ import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.repository.IHotelRep
 import com.jcj.microservice.hotel.adapters.driven.jpa.mysql.repository.IReservationRepository;
 import com.jcj.microservice.hotel.domain.model.Reservation;
 import com.jcj.microservice.hotel.domain.spi.IReservationPersistencePort;
+import io.swagger.v3.core.util.Json;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -44,8 +45,8 @@ public class ReservationAdapter implements IReservationPersistencePort {
     }
 
     @Override
-    public String bringNameHotel(Long reservationId) {
+    public Object bringNameHotel(Long reservationId) {
         ReservationEntity reservation = reservationRepository.findById(reservationId).orElseThrow(ReservationNotFoundException::new);
-        return reservation.getHotel().getName();
+        return  reservation.getHotel();
     }
 }
