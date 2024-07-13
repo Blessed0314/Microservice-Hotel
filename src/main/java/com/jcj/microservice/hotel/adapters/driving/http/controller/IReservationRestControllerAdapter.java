@@ -5,6 +5,7 @@ import com.jcj.microservice.hotel.adapters.driving.http.dto.response.Reservation
 import com.jcj.microservice.hotel.adapters.driving.http.mapper.IReservationRequestMapper;
 import com.jcj.microservice.hotel.adapters.driving.http.mapper.IReservationResponseMapper;
 import com.jcj.microservice.hotel.domain.api.IReservationServicePort;
+import io.swagger.v3.core.util.Json;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class IReservationRestControllerAdapter {
     }
 
     @GetMapping("/nameHotel/{id}")
-    public String bringNameHotel(@PathVariable Long id){
+    public Object bringNameHotel(@PathVariable Long id){
         return reservationServicePort.bringNameHotel(id);
     }
 }
